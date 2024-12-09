@@ -1,0 +1,27 @@
+.book{
+  background-image: url('./library1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.header-class{
+  padding-top: 1rem;
+}
+
+.search-bar input{
+  margin-left: 3rem;
+  width: 90%;
+  height: 50px;
+  margin-bottom: 2rem;
+  border-radius: 23px;
+  background-color: white;
+  color: black;
+  padding-left: 2rem;
+  border-color: rgba(255, 255, 255, 0.388);
+  font-size: 20px;
+  justify-content: center;
+}
+
+.search-icon{
+  margin-left: -4rem;
+}

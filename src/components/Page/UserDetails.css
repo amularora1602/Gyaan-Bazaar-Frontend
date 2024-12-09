@@ -1,0 +1,60 @@
+
+/* src/components/UserDetails.css */
+
+.user-details {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .user-info {
+    margin-bottom: 20px;
+  }
+  
+  .user-info p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .edit-form input {
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit-form button {
+    padding: 10px 20px;
+    background-color: #fca61f;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .edit-form button:hover {
+    background-color: #f799a3;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #242d49;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
