@@ -6,6 +6,8 @@ import EventForm from "./form/EventForm";
 import Header from "../navbar/header";
 import "./EventPage.css";
 import Footer from "../footer/Footer";
+import UpcomingEventUser from "../EventUser";
+
 
 const EventPage = () => {
   const [events, setEvents] = useState([]);
@@ -67,18 +69,18 @@ const EventPage = () => {
       <div className=" bg-white w-full">
         <div className="event-content">
           <div className="event-main">
-            <UpcomingEvents 
+            <UpcomingEventUser 
               events={events} 
               selectedDate={selectedDate} 
               showFilteredEvents={showFilteredEvents} 
               setShowFilteredEvents={setShowFilteredEvents} 
               toggleForm={toggleForm} 
             />
-            {/* <RightSection 
+            <RightSection 
               selectedDate={selectedDate} 
               setSelectedDate={setSelectedDate} 
               setShowFilteredEvents={setShowFilteredEvents} 
-            /> */}
+            />
           </div>
         </div>
         <EventForm

@@ -99,26 +99,63 @@ const Unimart = () => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-          <button className="upload-btn" onClick={handleUploadClick}>Upload Product</button>
+
           <button className="cart-btn" onClick={handleCartClick}>Go to Cart</button>
         </div>
 
-        <div className="product-list">
+        <div className="product-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-              <div key={product.id} className="product-card">
-                <img src={`/${product.image}`} alt={product.productName} />
-                <h2>{product.productName}</h2>
-                <p>Price: Rs.{product.price}</p>
-                <p>Category: {product.category}</p>
-                <p>{product.description}</p>
-                <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <div
+                key={product.id}
+                className="product-card border rounded-lg shadow-md p-4 flex flex-col items-center text-center bg-white"
+              >
+                <img
+                  src={`/${product.image}`}
+                  alt={product.productName}
+                  className="w-full h-40 object-cover rounded-md mb-4"
+                />
+                <div className="w-64">
+                  <h2 className="text-lg font-semibold mb-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                    {product.productName}
+                  </h2>
+                </div>
+
+                <p className="text-sm text-gray-500 mb-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                  Price: Rs.{product.price}
+                </p>
+                <p className="text-sm text-gray-500 mb-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                  Category: {product.category}
+                </p>
+                <div className="w-52">
+
+                <p
+                  className="text-sm text-gray-600 mb-4 overflow-hidden text-ellipsis break-words"
+                  style={{
+                    display: '-webkit-box',
+                    WebkitBoxOrient: 'vertical',
+                    WebkitLineClamp: 2,
+                    maxHeight: '3em',
+                  }}
+                >
+                  {product.description}
+                </p>
               </div>
+                <button
+                  className="add-to-cart-btn bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Cart
+                </button>
+              </div>
+
+
             ))
           ) : (
-            <p>No products found</p>
+            <p className="col-span-full text-center text-gray-500">No products found</p>
           )}
         </div>
+
 
         {showUploadModal && (
           <div className="modal-overlay">
@@ -165,3 +202,5 @@ const Unimart = () => {
 };
 
 export default Unimart;
+
+

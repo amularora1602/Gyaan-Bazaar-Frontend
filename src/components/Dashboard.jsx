@@ -52,10 +52,14 @@ const Dashboard = () => {
       <div className="bg-pink-100 p-4 flex flex-col justify-between h-screen overflow-auto fixed top-0 left-0">
 
         <div className=''>
-          <div className="text-gray-600 font-bold m-10"><div className="logo">
+          <div className="text-gray-600 font-bold m-10 "><div className="logo" >
           <img src={Logo} alt="logo" />
-          <span>
-            Gyaan<span>B</span>azaar
+          <span style={{
+        color: "#ff6347", // Example color (Tomato)
+        fontSize: "1.5rem", // Adjust font size
+        fontWeight: "bold", // Optional: Make the text bold
+      }}>
+            Gyaan<span style={{ color: "#2e8b57" }}>B</span>azaar
           </span>
         </div></div>
           <ul className="space-y-4">

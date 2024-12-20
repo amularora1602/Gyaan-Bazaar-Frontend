@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./EventDetails.css";
+import "../components/Event/viewDetails/EventDetails.css";
 
-const EventDetails = () => {
+const EventDetailsAdmin = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
@@ -25,7 +25,7 @@ const EventDetails = () => {
   }, [id]);
 
   const handleBackClick = () => {
-    navigate("/event");
+    navigate("/");
     window.scrollTo(0, 0);
   };
 
@@ -108,46 +108,14 @@ const EventDetails = () => {
             <p>Date: {new Date(event.eventDate).toLocaleDateString()}</p>
           </div>
         </div>
-        <div className="custom-booking">
+        {/* <div className="custom-booking">
           <p className="custom-reservation-line">Be part of something special. Secure your spot now!</p>
           <button className="custom-book-spot-button" onClick={handleRegisterClick}>
             Register Now
           </button>
-        </div>
+        </div> */}
       </div>
-      {showRegistrationForm && (
-        <div className="registration-form-overlay">
-          <div className="registration-form">
-            <button className="registration-form-close" onClick={handleCloseForm}>
-              &times;
-            </button>
-            <h2>Registration Details</h2>
-            <form onSubmit={handleRegister}>
-              <label>
-                Email ID:
-                <input
-                  placeholder="Email ID"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </label>
-              <label>
-                University Roll Number:
-                <input
-                  type="text"
-                  placeholder="Roll number"
-                  value={universityRollNumber}
-                  onChange={(e) => setUniversityRollNumber(e.target.value)}
-                  required
-                />
-              </label>
-              <button type="submit">Save</button>
-            </form>
-          </div>
-        </div>
-      )}
+      
       <div className="speaker-section">
         <div className="speaker-header">
           <h2>Meet the Speakers</h2>
@@ -174,4 +142,4 @@ const EventDetails = () => {
   );
 };
 
-export default EventDetails;
+export default EventDetailsAdmin;

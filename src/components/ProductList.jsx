@@ -58,13 +58,83 @@ const ProductList = () => {
   };
 
   // Handle the form input changes
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   if (name==="productName" ){
+  //     // Validate product name length
+  //     if (value.length > 20) {
+  //       setError("Product name cannot exceed 20 characters.");
+  //       return;
+  //     } else {
+  //       setError("");
+  //     }
+  //   }
+  //   if (name==="description"){
+  //     // Validate description length
+  //     if (value.length > 60) {
+  //       setError("Description cannot exceed 60 characters.");
+  //       return;
+  //     } else {
+  //       setError("");
+  //     }
+  //   }
+
+  //   // For price, ensure no negative numbers
+  //   if (name === "price") {
+  //     // Allow empty or valid non-negative numbers
+  //     if (value === "" || /^[0-9]*$/.test(value)) {
+  //       setNewProduct({
+  //         ...newProduct,
+  //         [name]: value, // Update the price with valid value
+  //       });
+  //     }
+  //   } else {
+  //     // For description, just update the value as is
+  //     setNewProduct({
+  //       ...newProduct,
+  //       [name]: value,
+  //     });
+  //   }
+  // };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewProduct((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  
+    if (name === "productName") {
+      // Trim and enforce max length of 20 characters
+      if (value.length > 20) {
+        setError("Product name cannot exceed 20 characters.");
+        return;
+      } else {
+        setError("");
+      }
+    }
+  
+    if (name === "description") {
+      // Validate description length
+      if (value.length > 60) {
+        setError("Description cannot exceed 60 characters.");
+        return;
+      } else {
+        setError("");
+      }
+    }
+  
+    // For price, ensure only non-negative numbers
+    if (name === "price") {
+      if (value === "" || /^[0-9]*$/.test(value)) {
+        setNewProduct({
+          ...newProduct,
+          [name]: value,
+        });
+      }
+    } else {
+      setNewProduct({
+        ...newProduct,
+        [name]: value,
+      });
+    }
   };
+  
 
   // Handle image file change
   const handleImageChange = (e) => {
@@ -85,23 +155,34 @@ const ProductList = () => {
     if (newProduct.image) {
       formData.append('image', newProduct.image);
     }
-
+  
     try {
       const response = await axios.post('http://localhost:5000/api/products', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Ensure correct content type for file uploads
         },
       });
-
+  
       console.log(response.data.message); // Product added successfully
       setProducts((prev) => [...prev, response.data]);
       setFilteredProducts((prev) => [...prev, response.data]);
-      setShowModal(false); // Close modal after adding product
+  
+      // Reset form fields
+      setNewProduct({
+        productName: "",
+        price: "",
+        category: "",
+        description: "",
+        image: null,
+      });
+  
+      // Close modal
+      setShowModal(false);
     } catch (error) {
       console.error('Error adding product:', error);
     }
   };
-
+  
   const handleViewDetails = (id) => {
     navigate(`/product/${id}`);
     window.scrollTo(0, 0);
@@ -194,18 +275,24 @@ const ProductList = () => {
                   name="productName"
                   value={newProduct.productName}
                   onChange={handleInputChange}
+                  max={"20"}
+
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block text-sm">Price</label>
                 <input
-                  type="number"
+                  type="text"
                   name="price"
                   value={newProduct.price}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  min={'0'}
+                  max={'100000'}
+                  required
                 />
               </div>
 
@@ -216,6 +303,7 @@ const ProductList = () => {
                   value={newProduct.category}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  required
                 >
                   {categories.map((category) => (
                     <option key={category} value={category}>
@@ -232,6 +320,8 @@ const ProductList = () => {
                   value={newProduct.description}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
+
+                  required
                 />
               </div>
 
@@ -241,6 +331,7 @@ const ProductList = () => {
                   type="file"
                   onChange={handleImageChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  required
                 />
               </div>
 

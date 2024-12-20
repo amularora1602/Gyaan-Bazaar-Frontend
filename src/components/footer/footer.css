@@ -27,26 +27,59 @@
 .newsletter input {
   width: 60%;
   padding: 10px; /* Reduced padding */
-  border: none;
-  outline: none;
+  border-color: black ;
+  outline: black;
+  color:black;
   margin-right: 5px; /* Reduced margin */
   border-radius: 4px;
 }
 
-.subscribe-btn {
+/* .subscribe-btn {
   background-color: #fff;
   color: #1eb2a6;
-  padding: 10px; /* Reduced padding */
-  border-radius: 4px;
+  padding: 17.5px; /* Reduced padding */
+  /* border-radius: 4px;
   cursor: pointer;
   border: none;
   transition: background-color 0.3s ease;
+} */
+/* 
+.subscribe-btn:hover {
+  background-color: #d4d4d4;
+  color: #fff;
+} */ 
+
+.subscribe-btn {
+  background-color: #fff;
+  color: #1eb2a6;
+  padding: 8.5px; 
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  position: relative; 
+  transition: background-color 0.3s ease;
+  font-size: 16px; /* Adjust as needed */
+  display: inline-flex;
+  align-items: center; 
+}
+
+.subscribe-btn::before {
+  content: '\2192'; /* Unicode for a left arrow */
+  margin-right: 0px; /* Spacing between arrow and text */
+  font-size: 16px; 
+  color: #1eb2a6; 
+  transition: color 0.3s ease;
 }
 
 .subscribe-btn:hover {
-  background-color: #16a085;
+  background-color: #1eb2a6;
   color: #fff;
 }
+
+.subscribe-btn:hover::before {
+  color: #fff;
+}
+
 footer {
   background-color: #f4f4f4;
   padding: 40px 20px; /* Adjusted padding */
@@ -199,4 +232,14 @@ footer .last i {
   .legal p {
     font-size: 12px;
   }
+}
+
+footer a {
+  color: #1eb2a6;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: #333;
 }

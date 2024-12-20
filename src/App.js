@@ -18,8 +18,13 @@ import Cart from "./components/unimart/Cart";
 import Dashboard from "./components/Dashboard";
 
 // Admin-Specific Components
-import MainDash from "./components/MainDash/MainDash";
-import Sidebar from "./components/Sidebar";
+// import MainDash from "./components/MainDash/MainDash";
+// import Sidebar from "./components/Sidebar";
+import CheckoutPage from "./components/Paymentpage";
+// import UpcomingEventUser from "./components/EventUser";
+import EventDetailsAdmin from "./components/AdminEventDetails";
+
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -81,11 +86,13 @@ function App() {
                       <Route path="/book" element={<Book />} />
                       <Route path="/subsubjects/:id" element={<SubSubjects />} />
                       <Route path="/courseBooks" element={<CourseBooks />} />
+                      <Route path="/payment" element={< CheckoutPage/>} />
                     </>
                   )}
                   {isAuthenticated() === "Admin" && (
                     <>
                       <Route path="/Dashboard" element={<Dashboard />} />
+                      <Route path="/event/:id" element={<EventDetailsAdmin />} />
                     </>
                   )}
                 </Routes>

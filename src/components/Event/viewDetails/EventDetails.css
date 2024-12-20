@@ -263,13 +263,16 @@
 }
 
 .custom-event-name {
-    font-size: 58px;
-    font-weight: 500;
-    margin: 50px 0 0 20px;
-    font-style: italic;
-    font-family: 'Forum';
-    text-align: center;
+  font-size: 58px;
+  font-weight: 500;
+  margin: 50px 0 0 20px;
+  font-style: italic;
+  font-family: 'Forum';
+  text-align: center;
+  white-space: normal; /* Allow the text to wrap */
+  word-wrap: break-word; /* Break long words into the next line if needed */
 }
+
 
 .custom-date-time {
   margin: 50px 0 0 20px;
@@ -298,8 +301,12 @@
 }
 
 .custom-description p {
-  width: 100%;
   font-size: 25px;
+  margin: 0;
+  text-align: justify;
+  overflow: hidden; /* Ensure content doesn't spill outside */
+  white-space: normal; /* Allow the text to wrap */
+  word-wrap: break-word; /* Break long words into the next line if needed */
 }
 
 .custom-info {
@@ -486,7 +493,9 @@
   width: 100%;
   padding: 8px;
   margin-top: 5px;
+  border-color: #535252;
 }
+
 
 .registration-form button {
   padding: 10px 20px;

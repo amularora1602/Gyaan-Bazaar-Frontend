@@ -1,161 +1,186 @@
 .unimart-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.unimart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.unimart-header input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4\px;
+}
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .truncate {
+    -webkit-line-clamp: 2; /* Allow 2 lines on medium and larger screens */
   }
-  
-  .unimart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+  .truncate {
+    -webkit-line-clamp: 3; /* Allow 3 lines on larger screens */
   }
-  
-  .unimart-header input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .unimart-header .upload-btn,
-  .unimart-header .cart-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    margin-left: 10px;
-  }
-  
-  .unimart-header .cart-btn {
-    background-color: #28a745;
-  }
-  
-  .unimart-header .upload-btn:hover,
-  .unimart-header .cart-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 20px;
-    width: calc(25% - 20px);
-    box-sizing: border-box;
-    transition: transform 0.2s;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .product-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-  }
-  
-  .product-card h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .product-card p {
-    margin: 5px 0;
-  }
-  
+}
+
+@media (max-width: 640px) {
   .add-to-cart-btn {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: white;
+    padding: 0.5rem 1rem; /* Smaller padding on small screens */
   }
-  
-  .add-to-cart-btn:hover {
-    background-color: #218838;
-  }
-  
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 4px;
-    width: 400px;
-    max-width: 100%;
-  }
-  
-  .modal-content h2 {
-    margin-bottom: 20px;
-  }
-  
-  .modal-content .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .modal-content .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .modal-content .form-group input,
-  .modal-content .form-group textarea,
-  .modal-content .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .modal-content .submit-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .modal-content .submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .modal-content .cancel-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #dc3545;
-    color: white;
-    margin-left: 10px;
-  }
-  
-  .modal-content .cancel-btn:hover {
-    background-color: #c82333;
-  }
-  
+}
+
+
+.unimart-header .upload-btn,
+.unimart-header .cart-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  margin-left: 10px;
+}
+
+.unimart-header .cart-btn {
+  background-color: #28a745;
+}
+
+.unimart-header .upload-btn:hover,
+.unimart-header .cart-btn:hover {
+  background-color: #0056b3;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  width: calc(25% - 20px);
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.product-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  margin: 5px 0;
+}
+
+.add-to-cart-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #218838;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  width: 400px;
+  max-width: 100%;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content .form-group {
+  margin-bottom: 15px;
+}
+
+.modal-content .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-content .form-group input,
+.modal-content .form-group textarea,
+.modal-content .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modal-content .submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-content .submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.modal-content .cancel-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
+.modal-content .cancel-btn:hover {
+  background-color: #c82333;
+}
